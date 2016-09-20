@@ -194,7 +194,7 @@ bool selectFile(const char* name = "Select File", const char* button = "Select",
                         static sf::Image preview;
                         static sf::Texture previewTexture;
 
-//                        if(preview.loadFromFile(root + "/" + file))
+                        if(preview.loadFromFile(root + "/" + file))
                         {
                             auto maxSize = ImGui::GetWindowContentRegionMax();
 
@@ -268,12 +268,12 @@ int main()
 {
     hqx::initialize();
 
-    sf::RenderWindow window(sf::VideoMode(750, 450), "map");
+    sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "ScalaPixel");
 
     ImGui::SFML::Init(window);
 
     sf::Image srcImg;
-//    srcImg.loadFromFile("img.png");
+    srcImg.loadFromFile("testImgs/Logo.png");
 
     sf::Image img;
     sf::Image cmprImg;
@@ -292,7 +292,10 @@ int main()
     uint32_t selectionCount = 1;
 
     std::vector<AlgoSelect> selections;
-    selections.assign(selectionCount, {});
+    selections.push_back({0, 6});
+    selections.push_back({1, 6});
+
+    bool compare = true;
 
     sf::Clock deltaClock;
     while(window.isOpen())
@@ -311,8 +314,6 @@ int main()
         ImGui::SFML::Update(deltaClock.restart());
 
         ImGui::Begin((std::string(selectFilePath) + "###Data").c_str(), nullptr, ImGuiWindowFlags_AlwaysAutoResize);
-
-        static bool compare = false;
 
         texture.loadFromImage(img);
 
@@ -374,8 +375,8 @@ int main()
             if(ImGui::Button("Load"))
                 ImGui::OpenPopup("Load File");
 
-//            if(selectFile("Load File", "Load"))
-//                srcImg.loadFromFile(selectFilePath);
+            if(selectFile("Load File", "Load"))
+                srcImg.loadFromFile(selectFilePath);
 
             ImGui::SameLine();
             if(ImGui::Button("Save"))
@@ -502,8 +503,8 @@ int main()
         if(!noConfig)
             ImGui::End();
 
-//        if(saveImg)
-//            img.saveToFile(selectFilePath);
+        if(saveImg)
+            img.saveToFile(selectFilePath);
 
         ImGui::End();
 
