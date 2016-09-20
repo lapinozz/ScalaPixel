@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1474313116 source:/home/lapinozz/Documents/Projects/ImageScaling/main.cpp
+1474385716 source:/home/lapinozz/Documents/Projects/ImageScaling/main.cpp
 	<iostream>
 	<memory>
 	<windows.h>
@@ -31,7 +31,7 @@
 	<SFML/Graphics/Color.hpp>
 	<SFML/System/Time.hpp>
 
-1474312379 source:/home/lapinozz/Documents/Projects/ImageScaling/xbrz/xbrz.cpp
+1474314747 source:/home/lapinozz/Documents/Projects/ImageScaling/xbrz/xbrz.cpp
 	"xbrz.h"
 	<cassert>
 	<algorithm>
@@ -67,13 +67,13 @@
 	<stddef.h>
 	<stdint.h>
 
-1474312577 source:/home/lapinozz/Documents/Projects/ImageScaling/fileOperation/fileOperation.cpp
+1474387371 source:/home/lapinozz/Documents/Projects/ImageScaling/fileOperation/fileOperation.cpp
 	"fileOperation.hpp"
 	<sstream>
 	<cstring>
 	<stdlib.h>
 	<stdio.h>
-	"../portable/dirent_portable.h"
+	<dirent.h>
 	<sys/stat.h>
 	<sys/types.h>
 

@@ -27,6 +27,34 @@
 					<Add option="-s" />
 				</Linker>
 			</Target>
+			<Target title="Release-window">
+				<Option output="bin/Release-Window/ImageScaling" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release-Window/" />
+				<Option type="1" />
+				<Option compiler="mingw" />
+				<Option projectCompilerOptionsRelation="1" />
+				<Option projectLinkerOptionsRelation="1" />
+				<Option projectIncludeDirsRelation="1" />
+				<Option projectLibDirsRelation="1" />
+				<Compiler>
+					<Add option="-std=c++11" />
+					<Add option="-g" />
+					<Add option="-DNDEBUG" />
+					<Add option="-DCINTERFACE" />
+					<Add option="-D_MSC_VER=1800" />
+					<Add directory="../../shared/SFML-2.4.0-Mingw/SFML/include" />
+					<Add directory="../../shared/imgui" />
+				</Compiler>
+				<Linker>
+					<Add option="-static-libgcc" />
+					<Add option="-static-libstdc++" />
+					<Add library="../../shared/imgui/libimgui.so" />
+					<Add library="sfml-graphics" />
+					<Add library="sfml-window" />
+					<Add library="sfml-system" />
+					<Add directory="../../shared/SFML-2.4.0-Mingw/SFML/lib" />
+				</Linker>
+			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-std=c++14" />
@@ -44,11 +72,16 @@
 		</Linker>
 		<Unit filename="../../shared/imgui/imgui-SFML.h" />
 		<Unit filename="../../shared/imgui/imgui.h" />
+		<Unit filename="../../shared/imgui/imgui_demo.cpp" />
+		<Unit filename="fileOperation/fileOperation.cpp" />
+		<Unit filename="fileOperation/fileOperation.hpp" />
 		<Unit filename="hqx/hqx.cpp" />
 		<Unit filename="hqx/hqx.hpp" />
 		<Unit filename="hqx/rgbToYuv.cpp" />
 		<Unit filename="hqx/rgbToYuv.hpp" />
 		<Unit filename="main.cpp" />
+		<Unit filename="portable/dirent_portable.h" />
+		<Unit filename="portable/dirent_window.h" />
 		<Unit filename="xbrz/config.h" />
 		<Unit filename="xbrz/xbrz.cpp" />
 		<Unit filename="xbrz/xbrz.h" />

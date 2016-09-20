@@ -1,8 +1,6 @@
 #include <iostream>
 #include <memory>
 
-#include <windows.h>
-
 #include <imgui.h>
 #include <imgui-SFML.h>
 
@@ -196,7 +194,7 @@ bool selectFile(const char* name = "Select File", const char* button = "Select",
                         static sf::Image preview;
                         static sf::Texture previewTexture;
 
-                        if(preview.loadFromFile(root + "/" + file))
+//                        if(preview.loadFromFile(root + "/" + file))
                         {
                             auto maxSize = ImGui::GetWindowContentRegionMax();
 
@@ -275,7 +273,7 @@ int main()
     ImGui::SFML::Init(window);
 
     sf::Image srcImg;
-    srcImg.loadFromFile("img.png");
+//    srcImg.loadFromFile("img.png");
 
     sf::Image img;
     sf::Image cmprImg;
@@ -376,8 +374,8 @@ int main()
             if(ImGui::Button("Load"))
                 ImGui::OpenPopup("Load File");
 
-            if(selectFile("Load File", "Load"))
-                srcImg.loadFromFile(selectFilePath);
+//            if(selectFile("Load File", "Load"))
+//                srcImg.loadFromFile(selectFilePath);
 
             ImGui::SameLine();
             if(ImGui::Button("Save"))
@@ -504,8 +502,8 @@ int main()
         if(!noConfig)
             ImGui::End();
 
-        if(saveImg)
-            img.saveToFile(selectFilePath);
+//        if(saveImg)
+//            img.saveToFile(selectFilePath);
 
         ImGui::End();
 

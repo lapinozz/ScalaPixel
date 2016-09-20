@@ -6,7 +6,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "../portable/dirent_portable.h"
+//#include "../portable/dirent_portable.h"
+#include <dirent.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 
@@ -57,8 +58,8 @@ std::vector<std::string> getFilesInFolder(std::string path)
     dirent* dp;
     while((dirp != NULL) && ((dp = readdir(dirp)) != NULL))
     {
-        if (dp->d_type == DT_REG)
-            files.push_back(std::string(dp->d_name));
+        if(isFile(dp->d_name))
+            files.push_back(dp->d_name);
     }
 
     (void)closedir(dirp);
@@ -73,7 +74,7 @@ std::vector<std::string> getFolderInFolder(std::string path)
 
     while((dp = readdir(dirp)) != NULL)
     {
-        if (dp->d_type == DT_DIR && strcmp(dp->d_name, ".") && strcmp(dp->d_name, ".."))
+        if (isFolder(dp->d_name) && strcmp(dp->d_name, ".") && strcmp(dp->d_name, ".."))
             folders.push_back(dp->d_name);
     }
 
